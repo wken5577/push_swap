@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:48:30 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/10 16:07:00 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/10 21:46:26 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_push(t_stack *st, t_node *target);
 t_node	*ft_pop_last(t_stack *st);
 t_node	*ft_pop(t_stack *st);
 void	b_to_a_low_element(int r, t_stack *stack_a, t_stack *stack_b);
-void	a_to_b_low_element(int r, t_stack *stack_a);
+void	a_to_b_low_element(int r, t_stack *stack_a, t_stack *stack_b);
 void	sort_arr(int *arr, int size);
 int		*get_arr(t_stack *st, int r);
 void	get_pivot(t_stack *st, int pivot[], int r);
@@ -66,4 +66,11 @@ void	print_stack_asc(t_stack *stac);
 void	a_low_element1(t_stack *st_a, t_stack *st_b, int nums[]);
 void	b_low_element1(t_stack *st_a, t_stack *st_b, int nums[]);
 int		*get_nums(t_stack *st);
+void	mv_atob_one_pivot(int r, t_stack *stack_a, t_stack *stack_b);
+void	mv_btoa_one_pivot(int r, t_stack *stack_a, t_stack *stack_b);
+int		need_sort_b(int i, int r, t_stack *st_b, int pivot);
+int		need_sort_a(int i, int r, t_stack *st_a, int pivot);
+void	start_ra(t_stack *stack_a, int data[], int n);
+void	start_rb(t_stack *stack_b, int data[], int n);
+void	do_rrb(int rb_pa[], t_stack *stack_b);
 #endif

@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:21:51 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/10 16:08:24 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/10 16:23:55 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,19 +95,19 @@ void	sort_three_element_a(t_stack *st)
 	}
 }
 
-void	a_to_b_low_element(int r, t_stack *stack_a)
+void	a_to_b_low_element(int r, t_stack *stack_a, t_stack *stack_b)
 {
-	if (r == 0)
-		return ;
-	if (r == 1)
+	if (r == 1 || r == 0)
 		return ;
 	if (r == 2)
 	{
 		if (stack_a->head->data > stack_a->head->next->data)
 			sa(stack_a);
 	}
-	else
+	else if (stack_a->count == 3 && r == 3)
 		sort_three_element_a(stack_a);
+	else
+		a_low_element1(stack_a, stack_b, get_nums(stack_a));
 }
 
 void	get_pivot(t_stack *st, int pivot[], int r)
