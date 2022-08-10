@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_s_utils.c                                        :+:      :+:    :+:   */
+/*   ps_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:23:35 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/04 19:39:45 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/09 13:12:51 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,24 +65,10 @@ void	sort_arr(int *arr, int size)
 	}
 }
 
-int	validation_argv_uniq(int argc, char **argv)
+int	comp_arr(int *arr, int argc)
 {
-	int	*arr;
 	int	i;
-	int	j;
 
-	arr = malloc(sizeof(int) * (argc - 1));
-	if (!arr)
-		print_error();
-	i = 1;
-	j = 0;
-	while (argv[i])
-	{
-		arr[j] = ft_atoi(argv[i]);
-		i++;
-		j++;
-	}
-	sort_arr(arr, argc - 1);
 	i = 0;
 	while (i < argc - 2)
 	{
@@ -91,4 +77,31 @@ int	validation_argv_uniq(int argc, char **argv)
 		i++;
 	}
 	return (1);
+}
+
+int	validation_argv_uniq(int argc, char **argv)
+{
+	int			*arr;
+	int			i;
+	int			j;
+	int			validaton;
+
+	arr = malloc(sizeof(long long) * (argc - 1));
+	if (!arr)
+		print_error();
+	i = 1;
+	j = 0;
+	validaton = 0;
+	while (argv[i])
+	{
+		arr[j] = ft_atoi(argv[i], &validaton);
+		if (validaton)
+			return (0);
+		i++;
+		j++;
+	}
+	sort_arr(arr, argc - 1);
+	validaton = comp_arr(arr, argc);
+	free(arr);
+	return (validaton);
 }

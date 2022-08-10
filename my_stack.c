@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 19:43:50 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/05 17:08:43 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/09 11:18:38 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,12 @@ void	fill_data_stack_a(t_stack *stack_a, char **argv)
 {
 	t_node	*tmp;
 	int		i;
+	int		val;
 
 	i = 1;
 	while (argv[i])
 	{
-		tmp = make_node(ft_atoi(argv[i]));
+		tmp = make_node(ft_atoi(argv[i], &val));
 		ft_push_last(stack_a, tmp);
 		i++;
 	}

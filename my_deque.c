@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/05 15:56:58 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/05 19:10:06 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/10 11:32:52 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,10 +94,4 @@ t_node	*ft_pop(t_stack *st)
 	result->prev = NULL;
 	result->next = NULL;
 	return (result);
-}
-
-void	rrr(t_stack *stack_a, t_stack *stack_b)
-{
-	rra(stack_a);
-	rrb(stack_b);
 }

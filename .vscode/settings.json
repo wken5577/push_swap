@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "ios": "c"
+        "ios": "c",
+        "__node_handle": "c",
+        "stdio.h": "c"
     }
 }
