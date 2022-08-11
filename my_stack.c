@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 19:43:50 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/09 11:18:38 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 10:40:22 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,32 @@ t_node	*make_node(int num)
 	return (result);
 }
 
-void	fill_data_stack_a(t_stack *stack_a, char **argv)
+void	start_fill(t_stack *stack_a, char **strs)
 {
 	t_node	*tmp;
 	int		i;
 	int		val;
 
+	i = 0;
+	while (strs[i])
+	{
+		tmp = make_node(ft_atoi(strs[i], &val));
+		ft_push_last(stack_a, tmp);
+		i++;
+	}
+}
+
+void	fill_data_stack_a(t_stack *stack_a, char **argv)
+{
+	char	**strs;
+	int		i;
+
 	i = 1;
 	while (argv[i])
 	{
-		tmp = make_node(ft_atoi(argv[i], &val));
-		ft_push_last(stack_a, tmp);
+		strs = ft_split(argv[i], ' ');
+		start_fill(stack_a, strs);
+		release_strs(strs);
 		i++;
 	}
 }

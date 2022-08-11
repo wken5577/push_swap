@@ -6,13 +6,11 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 16:22:01 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/10 16:05:11 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 10:32:19 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#include <stdio.h>
 
 void	reverse_stack_atob(int ra_pb_rb[], t_stack *stack_a, t_stack *stack_b)
 {

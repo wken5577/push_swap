@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:48:30 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/10 21:46:26 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 11:12:20 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,11 @@ typedef struct s_stack
 }	t_stack;
 
 void	print_error(void);
-int		validation_argv_isnum(char **argv);
-int		validation_argv_uniq(int argc, char **argv);
+int		validation_argv_isnum(char **strs);
+int		validation_argv_uniq(int size, char **strs);
+int		*fill_extend_arr(int *arr, int *size, char *str, int *validation);
+int		get_size(char **strs);
+void	release_strs(char **strs);
 void	init_stack(t_stack **stack_a, t_stack **stack_b);
 void	fill_data_stack_a(t_stack *stack_a, char **argv);
 void	sa(t_stack *stack_a);

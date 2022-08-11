@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:23:35 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/09 13:12:51 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 11:31:52 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,23 @@ void	print_error(void)
 	exit(1);
 }
 
-int	validation_argv_isnum(char **argv)
+int	validation_argv_isnum(char **strs)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 
-	i = 1;
-	while (argv[i])
-	{
-		if (argv[i][0] == '-' || argv[i][0] == '+')
+	i = 0;
+	while (strs[i])
+	{	
+		if (strs[i][0] == '-' || strs[i][0] == '+')
 			j = 1;
 		else
 			j = 0;
-		while (argv[i][j])
+		if (strs[i][j] == 0)
+			return (0);
+		while (strs[i][j])
 		{
-			if (ft_isdigit(argv[i][j]) == 0)
+			if (ft_isdigit(strs[i][j]) == 0)
 				return (0);
 			j++;
 		}
@@ -65,12 +67,12 @@ void	sort_arr(int *arr, int size)
 	}
 }
 
-int	comp_arr(int *arr, int argc)
+int	comp_arr(int *arr, int size)
 {
 	int	i;
 
 	i = 0;
-	while (i < argc - 2)
+	while (i < size)
 	{
 		if (arr[i] == arr[i + 1])
 			return (0);
@@ -83,25 +85,17 @@ int	validation_argv_uniq(int argc, char **argv)
 {
 	int			*arr;
 	int			i;
-	int			j;
+	int			size;
 	int			validaton;
 
-	arr = malloc(sizeof(long long) * (argc - 1));
-	if (!arr)
-		print_error();
-	i = 1;
-	j = 0;
+	i = 0;
 	validaton = 0;
-	while (argv[i])
-	{
-		arr[j] = ft_atoi(argv[i], &validaton);
-		if (validaton)
-			return (0);
-		i++;
-		j++;
-	}
-	sort_arr(arr, argc - 1);
-	validaton = comp_arr(arr, argc);
+	size = 0;
+	arr = 0;
+	while (argv[++i])
+		arr = fill_extend_arr(arr, &size, argv[i], &validaton);
+	sort_arr(arr, size);
+	validaton = comp_arr(arr, size);
 	free(arr);
 	return (validaton);
 }

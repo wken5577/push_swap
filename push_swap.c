@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:52:49 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/10 21:52:10 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 13:44:38 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	move_b_to_a(int r, t_stack *stack_a, t_stack *stack_b)
 			b_low_element1(stack_a, stack_b, get_nums(stack_b));
 		return ;
 	}
-	if (r <= 10)
+	if (r <= 6)
 	{
 		mv_btoa_one_pivot(r, stack_a, stack_b);
 		return ;
@@ -141,7 +141,7 @@ void	move_a_to_b(int r, t_stack *stack_a, t_stack *stack_b)
 		a_to_b_low_element(r, stack_a, stack_b);
 		return ;
 	}
-	if (r <= 10)
+	if (r <= 6)
 	{
 		mv_atob_one_pivot(r, stack_a, stack_b);
 		return ;
@@ -160,9 +160,23 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	int		i;
+	char	**strs;
 
-	stack_b = 0;
-	if (!(validation_argv_isnum(argv)) || !(validation_argv_uniq(argc, argv)))
+	i = 0;
+	if (argc < 2)
+		return (0);
+	while (++i < argc)
+	{
+		strs = ft_split(argv[i], ' ');
+		if (!(validation_argv_isnum(strs)))
+		{	
+			release_strs(strs);
+			print_error();
+		}
+		release_strs(strs);
+	}
+	if (!(validation_argv_uniq(argc, argv)))
 		print_error();
 	init_stack(&stack_a, &stack_b);
 	fill_data_stack_a(stack_a, argv);

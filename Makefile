@@ -6,7 +6,7 @@
 #    By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/09 12:57:04 by hyunkyle          #+#    #+#              #
-#    Updated: 2022/08/10 18:46:28 by hyunkyle         ###   ########.fr        #
+#    Updated: 2022/08/11 10:41:36 by hyunkyle         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRCS				= my_deque.c \
 					ps_utils3.c \
 					ps_utils4.c \
 					ps_utils5.c \
+					ps_utils6.c \
 					push_swap.c
 
 
