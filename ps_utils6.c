@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 21:44:33 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/11 11:29:55 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 19:32:20 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,22 @@ int	*fill_extend_arr(int *arr, int *size, char *str, int *validation)
 	}
 	*size = *size + str_size;
 	return (result);
+}
+
+void	start_validation_isnum(int argc, char **argv)
+{
+	int		i;
+	char	**strs;
+
+	i = 0;
+	while (++i < argc)
+	{
+		strs = ft_split(argv[i], ' ');
+		if (!(validation_argv_isnum(strs)))
+		{	
+			release_strs(strs);
+			print_error();
+		}
+		release_strs(strs);
+	}
 }

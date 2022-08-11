@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/08 15:21:51 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/10 16:23:55 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:48:48 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,8 +117,8 @@ void	get_pivot(t_stack *st, int pivot[], int r)
 	int	*arr;
 
 	arr = get_arr(st, r);
-	idx1 = r * 0.3;
-	idx2 = r * 0.6;
+	idx1 = r * (1. / 3);
+	idx2 = r * (2. / 3);
 	sort_arr(arr, r);
 	pivot[0] = arr[idx1];
 	pivot[1] = arr[idx2];

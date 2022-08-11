@@ -6,47 +6,11 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 14:52:49 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/11 13:44:38 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 20:22:27 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-#include <stdio.h>
-void	print_stack_asc(t_stack *stac)
-{
-	t_node *cur;
-	
-	if (stac->count == 0)
-		return ;
-	cur = stac->head;
-	printf("head = %d\n", stac->head->data);
-	printf("tail = %d\n", stac->tail->data);
-	printf("count = %d\n", stac->count);
-	while(cur)
-	{
-		printf("%d ", cur->data);
-		cur = cur->next;
-	}
-	printf("\n");
-}
-void	print_stack_desc(t_stack *stac)
-{
-	t_node *cur;
-	
-	if (stac->count == 0)
-		return ;
-	cur = stac->tail;
-	printf("head = %d\n", stac->head->data);
-	printf("tail = %d\n", stac->tail->data);
-	printf("count = %d\n", stac->count);
-	while(cur)
-	{
-		printf("%d ", cur->data);
-		cur = cur->prev;
-	}
-	printf("\n");
-}
 
 void	cnt_rb_pa_ra(int r, t_stack *stack_a, t_stack *stack_b, int rb_pa_ra[])
 {
@@ -160,27 +124,16 @@ int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		i;
-	char	**strs;
 
-	i = 0;
 	if (argc < 2)
 		return (0);
-	while (++i < argc)
-	{
-		strs = ft_split(argv[i], ' ');
-		if (!(validation_argv_isnum(strs)))
-		{	
-			release_strs(strs);
-			print_error();
-		}
-		release_strs(strs);
-	}
-	if (!(validation_argv_uniq(argc, argv)))
+	start_validation_isnum(argc, argv);
+	if (!(validation_argv_uniq(argv)))
 		print_error();
 	init_stack(&stack_a, &stack_b);
 	fill_data_stack_a(stack_a, argv);
 	move_a_to_b(stack_a->count, stack_a, stack_b);
 	free(stack_b);
+	free(stack_a);
 	return (0);
 }

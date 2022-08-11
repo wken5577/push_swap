@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_stack_utils3.c                                  :+:      :+:    :+:   */
+/*   my_stack_utils3_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/10 11:29:37 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/11 14:30:57 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 20:05:41 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	do_sa(stack_a);
 	do_sb(stack_b);
-	ft_putstr_fd("ss\n", 1);
 }
 
 void	rrr(t_stack *stack_a, t_stack *stack_b)
@@ -54,5 +53,4 @@ void	rrr(t_stack *stack_a, t_stack *stack_b)
 	ft_push(stack_a, node1);
 	node2 = ft_pop_last(stack_b);
 	ft_push(stack_b, node2);
-	ft_putstr_fd("rrr\n", 1);
 }

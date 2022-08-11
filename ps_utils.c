@@ -6,7 +6,7 @@
 /*   By: hyunkyle <hyunkyle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 15:23:35 by hyunkyle          #+#    #+#             */
-/*   Updated: 2022/08/11 11:31:52 by hyunkyle         ###   ########.fr       */
+/*   Updated: 2022/08/11 17:44:47 by hyunkyle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	comp_arr(int *arr, int size)
 	return (1);
 }
 
-int	validation_argv_uniq(int argc, char **argv)
+int	validation_argv_uniq(char **argv)
 {
 	int			*arr;
 	int			i;
